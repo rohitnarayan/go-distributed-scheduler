@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-distributed-scheduler/internal/pkg/server"
 
 	"github.com/spf13/cobra"
 )
@@ -32,7 +33,7 @@ func commands() []*cobra.Command {
 			Short:   "start server",
 			Aliases: []string{"server", "start"},
 			RunE: func(_ *cobra.Command, _ []string) error {
-				return nil
+				return server.Start()
 			},
 		},
 	}

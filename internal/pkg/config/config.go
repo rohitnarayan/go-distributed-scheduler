@@ -1,6 +1,8 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
 
 var (
 	App *Config
@@ -11,8 +13,8 @@ func Init() {
 
 	App = &Config{
 		Server: &ServerConfig{
-			Name:         viper.GetString("APP_PORT"),
-			Port:         viper.GetInt("APP_PORT"),
+			Name:         viper.GetString("APP_NAME"),
+			Port:         viper.GetInt("HTTP_PORT"),
 			ReadTimeout:  GetDurationInMillisecond("HTTP_READ_TIMEOUT_IN_MS"),
 			WriteTimeout: GetDurationInMillisecond("HTTP_WRITE_TIMEOUT_IN_MS"),
 		},

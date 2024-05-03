@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/spf13/cobra"
 )
 
@@ -18,6 +19,10 @@ func main() {
 
 	cli.AddCommand(commands()...)
 	cli.Version = fmt.Sprintf("%s (Commit: %s)", version, commit)
+
+	if err := cli.Execute(); err != nil {
+		panic(err)
+	}
 }
 
 func commands() []*cobra.Command {
